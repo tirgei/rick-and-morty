@@ -10,4 +10,6 @@ java {
 
 dependencies {
     implementation(Libraries.kotlinStandardLibrary)
+
+    implementation(Libraries.gson)
 }

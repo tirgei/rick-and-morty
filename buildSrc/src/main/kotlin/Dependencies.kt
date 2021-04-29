@@ -8,6 +8,9 @@ object Versions {
     const val ktx = "1.5.0-beta01"
     const val material = "1.3.0-rc01"
 
+    // Version codes for 3rd part libraries
+    const val gson = "2.8.6"
+
     //Version codes for all the test libraries
     const val junit4 = "4.13.1"
     const val testRunner = "1.3.1-alpha03"
@@ -43,10 +46,12 @@ object Libraries {
     //Any Library is added here
     const val kotlinStandardLibrary = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
-    const val constraintLayout =
-        "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     const val ktxCore = "androidx.core:core-ktx:${Versions.ktx}"
     const val materialComponents = "com.google.android.material:material:${Versions.material}"
+
+     // 3rd party libraries
+    const val gson = "com.google.code.gson:gson:${Versions.gson}"
 }
 
 object TestLibraries {
