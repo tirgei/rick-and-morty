@@ -25,6 +25,7 @@ object Versions {
 
 object BuildPlugins {
     //All the build plugins are added here
+    const val kotlin = "kotlin"
     const val androidLibrary = "com.android.library"
     const val ktlintPlugin = "org.jlleitschuh.gradle.ktlint"
     const val detektPlugin = "io.gitlab.arturbosch.detekt"
@@ -35,6 +36,7 @@ object BuildPlugins {
     const val kotlinParcelizePlugin = "org.jetbrains.kotlin.plugin.parcelize"
     const val gradleVersionsPlugin = "com.github.ben-manes.versions"
     const val jacocoAndroid = "com.hiya.jacoco-android"
+    const val javaLibrary = "java-library"
 }
 
 object Libraries {

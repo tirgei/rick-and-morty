@@ -1,3 +1,5 @@
+include(":domain")
+include(":data")
 pluginManagement {
     repositories {
         jcenter()
