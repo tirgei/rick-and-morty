@@ -2,6 +2,7 @@ package com.tirgei.rickandmorty.di
 
 import com.google.gson.Gson
 import com.tirgei.data.remote.ApiService
+import com.tirgei.rickandmorty.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,25 +18,25 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class NetworkModule {
 
-//    @Provides
-//    @Singleton
-//    fun provideApiService(): ApiService {
-//        val logger = HttpLoggingInterceptor {
-//            Timber.i("API REQUEST: $it")
-//        }
-//        logger.level = HttpLoggingInterceptor.Level.BODY
-//
-//        val client = OkHttpClient.Builder()
-////        if (BuildConfig.DEBUG) {
-////            client.addInterceptor(logger)
-////        }
-//
-//        return Retrofit.Builder()
-//            .baseUrl("")
-//            .client(client.build())
-//            .addConverterFactory(GsonConverterFactory.create(Gson()))
-//            .build()
-//            .create(ApiService::class.java)
-//    }
+    @Provides
+    @Singleton
+    fun provideApiService(): ApiService {
+        val logger = HttpLoggingInterceptor {
+            Timber.i("API REQUEST: $it")
+        }
+        logger.level = HttpLoggingInterceptor.Level.BODY
+
+        val client = OkHttpClient.Builder()
+        if (BuildConfig.DEBUG) {
+            client.addInterceptor(logger)
+        }
+
+        return Retrofit.Builder()
+            .baseUrl(BuildConfig.BASE_URL)
+            .client(client.build())
+            .addConverterFactory(GsonConverterFactory.create(Gson()))
+            .build()
+            .create(ApiService::class.java)
+    }
 
 }

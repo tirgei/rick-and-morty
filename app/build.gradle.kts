@@ -65,7 +65,10 @@ android {
         implementation(Libraries.constraintLayout)
         implementation(Libraries.materialComponents)
         implementation(Libraries.viewModelKtx)
-        implementation(Libraries.livedata)
+        implementation(Libraries.runtimeKtx)
+        implementation(Libraries.livedataKtx)
+        implementation(Libraries.coroutines)
+        implementation(Libraries.coroutinesPlayServices)
 
         implementation(Libraries.gson)
         implementation(Libraries.hilt)

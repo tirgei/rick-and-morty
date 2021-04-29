@@ -17,15 +17,51 @@ package com.tirgei.rickandmorty
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.tirgei.data.remote.repositories.CharactersRepository
+import com.tirgei.domain.onError
+import com.tirgei.domain.onSuccess
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import timber.log.Timber
+import javax.inject.Inject
 
 /**
  *  Main Activity which is the Launcher Activity
  */
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+    @Inject
+    lateinit var repository: CharactersRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        lifecycleScope.launch(Dispatchers.IO) {
+            val result = repository.getCharacters()
+            withContext(Dispatchers.Main) {
+                result
+                    .onSuccess {
+                        Timber.i("Success -> $it")
+                    }
+                    .onError {
+                        Timber.e("Error -> $it")
+                    }
+            }
+
+            val characterResult = repository.getCharacter(16)
+            withContext(Dispatchers.Main) {
+                characterResult.onSuccess {
+                    Timber.i("Character -> $it")
+                }.onError {
+                    Timber.e("Character error -> $it")
+                }
+            }
+
+        }
+
     }
 }

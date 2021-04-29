@@ -13,8 +13,8 @@ internal fun CharacterResponse.toDomain(): Character {
     return Character(
         id = this.id,
         name = this.name,
-        gender = CharacterGender.valueOf(this.gender),
-        status = CharacterStatus.valueOf(this.status),
+        gender = CharacterGender.UNKNOWN.fromKey(this.gender),
+        status = CharacterStatus.UNKNOWN.fromKey(this.status),
         species = this.species,
         type = this.type,
         origin = this.origin.toDomain(),
@@ -26,10 +26,10 @@ internal fun CharacterResponse.toDomain(): Character {
 
 internal fun LocationResponse.toDomain(): Location {
     return Location(
-        id = this.id,
+        id = this.id ?: 0,
         name = this.name,
-        dimension = this.dimension,
-        type = this.type,
+        dimension = this.dimension.orEmpty(),
+        type = this.type.orEmpty(),
         url = this.url
     )
 }

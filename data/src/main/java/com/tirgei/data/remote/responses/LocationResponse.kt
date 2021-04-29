@@ -4,13 +4,13 @@ import com.google.gson.annotations.SerializedName
 
 data class LocationResponse(
         @SerializedName("id")
-        val id: Int,
+        val id: Int?,
         @SerializedName("name")
         val name: String,
         @SerializedName("type")
-        val type: String,
+        val type: String?,
         @SerializedName("dimension")
-        val dimension: String,
+        val dimension: String?,
         @SerializedName("url")
         val url: String
 )

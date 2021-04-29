@@ -5,13 +5,13 @@ import com.tirgei.domain.interfaces.HasKey
 /**
  * Enum class for [Character] gender
  */
-enum class CharacterGender : HasKey {
+enum class CharacterGender : HasKey<CharacterGender> {
     MALE,
     FEMALE,
     GENDERLESS,
     UNKNOWN;
 
-    override fun fromKey(key: String?): HasKey {
+    override fun fromKey(key: String?): CharacterGender {
         return when (key) {
             "Male" -> MALE
             "Female" -> FEMALE

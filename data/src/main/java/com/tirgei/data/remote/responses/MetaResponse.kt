@@ -11,7 +11,7 @@ data class MetaResponse(
     @SerializedName("pages")
     val pages: Int,
     @SerializedName("next")
-    var next: String?,
+    var next: String? = null,
     @SerializedName("prev")
-    var prev: String?
+    var prev: String? = null
 )
