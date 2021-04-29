@@ -32,12 +32,12 @@ allprojects {
 }
 
 buildscript {
-    val kotlinVersion by extra("1.4.10")
     val jacocoVersion by extra("0.2")
 
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}")
         classpath("com.hiya:jacoco-android:$jacocoVersion")
+        classpath("com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}")
     }
 }
 

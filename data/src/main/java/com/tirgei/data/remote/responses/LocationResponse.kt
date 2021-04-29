@@ -1,4 +1,4 @@
-package com.tirgei.data.remote.models
+package com.tirgei.data.remote.responses
 
 import com.google.gson.annotations.SerializedName
 

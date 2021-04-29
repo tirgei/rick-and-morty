@@ -1,4 +1,4 @@
-package com.tirgei.data.remote.models
+package com.tirgei.data.remote.responses
 
 import com.google.gson.annotations.SerializedName
 
@@ -12,5 +12,7 @@ data class EpisodeResponse(
     @SerializedName("episode")
     val episode: String,
     @SerializedName("url")
-    val url: String
+    val url: String,
+    @SerializedName("characters")
+    val characters: List<CharacterResponse>
 )

@@ -5,8 +5,8 @@ import com.tirgei.domain.models.Character
 
 interface ICharactersRepository {
 
-    fun getCharacters(): Result<List<Character>>
+    suspend fun getCharacters(): Result<List<Character>>
 
-    fun getCharacter(characterId: Int): Result<Character>
+    suspend fun getCharacter(characterId: Int): Result<Character>
 
 }

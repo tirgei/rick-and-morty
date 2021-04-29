@@ -7,9 +7,14 @@ object Versions {
     const val constraintLayout = "2.1.0-alpha2"
     const val ktx = "1.5.0-beta01"
     const val material = "1.3.0-rc01"
+    const val hilt = "2.35"
+    const val coroutinesVersion = "1.3.9"
+    const val lifecycleVersion = "2.3.0"
 
     // Version codes for 3rd part libraries
     const val gson = "2.8.6"
+    const val retrofit = "2.9.0"
+    const val okhttpLoggingInterceptor = "4.9.0"
 
     //Version codes for all the test libraries
     const val junit4 = "4.13.1"
@@ -29,6 +34,8 @@ object Versions {
 object BuildPlugins {
     //All the build plugins are added here
     const val kotlin = "kotlin"
+    const val kotlinKapt = "kotlin-kapt"
+    const val daggerHiltPlugin = "dagger.hilt.android.plugin"
     const val androidLibrary = "com.android.library"
     const val ktlintPlugin = "org.jlleitschuh.gradle.ktlint"
     const val detektPlugin = "io.gitlab.arturbosch.detekt"
@@ -49,9 +56,22 @@ object Libraries {
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     const val ktxCore = "androidx.core:core-ktx:${Versions.ktx}"
     const val materialComponents = "com.google.android.material:material:${Versions.material}"
+    const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesVersion}"
+    const val coroutinesPlayServices = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${Versions.coroutinesVersion}"
+    const val viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycleVersion}"
+    const val livedata = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycleVersion}"
 
      // 3rd party libraries
     const val gson = "com.google.code.gson:gson:${Versions.gson}"
+    const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val retrofitConverterGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
+    const val okhttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttpLoggingInterceptor}"
+}
+
+object LibraryCompilers {
+    // Any library compilers is added here
+    const val hiltCompiler = "com.google.dagger:hilt-compiler:${Versions.hilt}"
 }
 
 object TestLibraries {
