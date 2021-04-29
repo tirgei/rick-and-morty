@@ -15,6 +15,7 @@ object Versions {
     const val gson = "2.8.6"
     const val retrofit = "2.9.0"
     const val okhttpLoggingInterceptor = "4.9.0"
+    const val timberVersion = "4.1.2"
 
     //Version codes for all the test libraries
     const val junit4 = "4.13.1"
@@ -29,6 +30,7 @@ object Versions {
     const val dokka = "1.4.20"
     const val gradleVersionsPlugin = "0.36.0"
     const val jacoco = "0.8.4"
+    const val secretsGradleVersion = "0.5"
 }
 
 object BuildPlugins {
@@ -47,6 +49,7 @@ object BuildPlugins {
     const val gradleVersionsPlugin = "com.github.ben-manes.versions"
     const val jacocoAndroid = "com.hiya.jacoco-android"
     const val javaLibrary = "java-library"
+    const val secretsGradle = "com.google.secrets_gradle_plugin"
 }
 
 object Libraries {
@@ -67,6 +70,7 @@ object Libraries {
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val retrofitConverterGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
     const val okhttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttpLoggingInterceptor}"
+    const val timber = "com.jakewharton.timber:timber:${Versions.timberVersion}"
 }
 
 object LibraryCompilers {
@@ -87,6 +91,7 @@ object AndroidSdk {
     const val minSdkVersion = 21
     const val compileSdkVersion = 30
     const val targetSdkVersion = compileSdkVersion
+    const val buildToolsVersion = "30.0.3"
     const val versionCode = 1
     const val versionName = "1.0"
 }

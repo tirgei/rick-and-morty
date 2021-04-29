@@ -13,19 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ke.co.appslab.gradleplugins
+package com.tirgei.rickandmorty
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import org.junit.Test
+
+import org.junit.Assert.*
 
 /**
- *  Main Activity which is the Launcher Activity
+ * Example local unit test, which will execute on the development machine (host).
+ *
+ * See [testing documentation](http://d.android.com/tools/testing).
  */
-
-class MainActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+class ExampleUnitTest {
+    @Test
+    fun addition_isCorrect() {
+        assertEquals(4, 2 + 2)
     }
 }
