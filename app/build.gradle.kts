@@ -4,6 +4,9 @@ plugins {
     id(BuildPlugins.kotlinParcelizePlugin)
     id(BuildPlugins.ktlintPlugin)
     id(BuildPlugins.jacocoAndroid)
+    id(BuildPlugins.daggerHiltPlugin)
+    id(BuildPlugins.kotlinKapt)
+    id(BuildPlugins.secretsGradle) version Versions.secretsGradleVersion
 }
 
 jacoco {
@@ -13,13 +16,13 @@ jacoco {
 android {
 
     compileSdkVersion(AndroidSdk.compileSdkVersion)
-    buildToolsVersion("30.0.2")
+    buildToolsVersion(AndroidSdk.buildToolsVersion)
 
     android.buildFeatures.dataBinding = true
     android.buildFeatures.viewBinding = true
 
     defaultConfig {
-        applicationId = "ke.co.appslab.gradleplugins"
+        applicationId = "com.tirgei.rickandmorty"
         minSdkVersion(AndroidSdk.minSdkVersion)
         targetSdkVersion(AndroidSdk.targetSdkVersion)
         versionCode = AndroidSdk.versionCode
@@ -53,11 +56,25 @@ android {
 
     dependencies {
         implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+        implementation(project(":data"))
+        implementation(project(":domain"))
+
         implementation(Libraries.kotlinStandardLibrary)
         implementation(Libraries.appCompat)
         implementation(Libraries.ktxCore)
         implementation(Libraries.constraintLayout)
         implementation(Libraries.materialComponents)
+        implementation(Libraries.viewModelKtx)
+        implementation(Libraries.livedata)
+
+        implementation(Libraries.gson)
+        implementation(Libraries.hilt)
+        implementation(Libraries.retrofit)
+        implementation(Libraries.retrofitConverterGson)
+        implementation(Libraries.okhttpLoggingInterceptor)
+        implementation(Libraries.timber)
+
+        kapt(LibraryCompilers.hiltCompiler)
 
         androidTestImplementation(TestLibraries.testRunner)
         androidTestImplementation(TestLibraries.espresso)
