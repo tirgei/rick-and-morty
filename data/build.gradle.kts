@@ -1,7 +1,7 @@
 
 plugins {
-    id(BuildPlugins.kotlin)
     id(BuildPlugins.javaLibrary)
+    id(BuildPlugins.kotlin)
     id(BuildPlugins.kotlinKapt)
 }
 
@@ -18,10 +18,8 @@ dependencies {
     implementation(Libraries.coroutinesPlayServices)
 
     implementation(Libraries.gson)
-    implementation(Libraries.hilt)
     implementation(Libraries.retrofit)
     implementation(Libraries.retrofitConverterGson)
     implementation(Libraries.okhttpLoggingInterceptor)
 
-    kapt(LibraryCompilers.hiltCompiler)
 }

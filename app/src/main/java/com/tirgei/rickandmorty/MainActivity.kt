@@ -17,7 +17,6 @@ package com.tirgei.rickandmorty
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.tirgei.rickandmorty.rickandmorty.R
 
 /**
  *  Main Activity which is the Launcher Activity
