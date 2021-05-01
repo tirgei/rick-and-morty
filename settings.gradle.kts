@@ -25,4 +25,4 @@ pluginManagement {
     }
 }
 include("app")
-rootProject.name = "GradlePlugins"
+rootProject.name = "Rick&Morty"
