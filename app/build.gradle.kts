@@ -66,6 +66,7 @@ android {
         implementation(Libraries.materialComponents)
         implementation(Libraries.viewModelKtx)
         implementation(Libraries.runtimeKtx)
+        implementation(Libraries.fragmentKtx)
         implementation(Libraries.livedataKtx)
         implementation(Libraries.coroutines)
         implementation(Libraries.coroutinesPlayServices)

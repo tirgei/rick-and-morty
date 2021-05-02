@@ -9,7 +9,8 @@ object Versions {
     const val material = "1.3.0-rc01"
     const val hilt = "2.35"
     const val coroutinesVersion = "1.3.9"
-    const val lifecycleVersion = "2.3.0"
+    const val lifecycleVersion = "2.3.1"
+    const val fragmentKtx = "1.3.3"
 
     // Version codes for 3rd part libraries
     const val gson = "2.8.6"
@@ -64,6 +65,7 @@ object Libraries {
     const val viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycleVersion}"
     const val livedataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycleVersion}"
     const val runtimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleVersion}"
+    const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtx}"
 
      // 3rd party libraries
     const val gson = "com.google.code.gson:gson:${Versions.gson}"

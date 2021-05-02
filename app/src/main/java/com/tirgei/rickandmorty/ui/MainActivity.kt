@@ -13,14 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.tirgei.rickandmorty
+package com.tirgei.rickandmorty.ui
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.tirgei.data.remote.onError
+import com.tirgei.data.remote.onLoading
+import com.tirgei.data.remote.onSuccess
 import com.tirgei.data.remote.repositories.CharactersRepository
 import com.tirgei.domain.onError
 import com.tirgei.domain.onSuccess
+import com.tirgei.rickandmorty.R
+import com.tirgei.rickandmorty.ui.viewmodels.CharactersViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -36,32 +43,23 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var repository: CharactersRepository
 
+    private val charactersViewModel by viewModels<CharactersViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        lifecycleScope.launch(Dispatchers.IO) {
-            val result = repository.getCharacters()
-            withContext(Dispatchers.Main) {
-                result
-                    .onSuccess {
-                        Timber.i("Success -> $it")
-                    }
-                    .onError {
-                        Timber.e("Error -> $it")
-                    }
-            }
-
-            val characterResult = repository.getCharacter(16)
-            withContext(Dispatchers.Main) {
-                characterResult.onSuccess {
-                    Timber.i("Character -> $it")
-                }.onError {
-                    Timber.e("Character error -> $it")
+        charactersViewModel.charactersLiveData.observe(this, { response ->
+            response.onLoading { Timber.i("Loading") }
+                .onSuccess {
+                    Timber.i("Characters: $it")
                 }
-            }
+                .onError {
+                    Timber.e("Error: $it")
+                }
+        })
 
-        }
+        charactersViewModel.fetchCharacters()
 
     }
 }
