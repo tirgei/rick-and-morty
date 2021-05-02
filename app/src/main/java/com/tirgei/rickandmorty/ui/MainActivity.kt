@@ -16,6 +16,7 @@
 package com.tirgei.rickandmorty.ui
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -27,6 +28,8 @@ import com.tirgei.data.remote.repositories.CharactersRepository
 import com.tirgei.domain.onError
 import com.tirgei.domain.onSuccess
 import com.tirgei.rickandmorty.R
+import com.tirgei.rickandmorty.databinding.ActivityMainBinding
+import com.tirgei.rickandmorty.ui.base.BaseActivity
 import com.tirgei.rickandmorty.ui.viewmodels.CharactersViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
@@ -39,15 +42,17 @@ import javax.inject.Inject
  *  Main Activity which is the Launcher Activity
  */
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity<ActivityMainBinding>() {
     @Inject
     lateinit var repository: CharactersRepository
 
     private val charactersViewModel by viewModels<CharactersViewModel>()
 
+    override val bindingInflater: (LayoutInflater) -> ActivityMainBinding
+        get() = ActivityMainBinding::inflate
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
         charactersViewModel.charactersLiveData.observe(this, { response ->
             response.onLoading { Timber.i("Loading") }
