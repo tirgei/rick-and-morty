@@ -74,6 +74,8 @@ android {
         implementation(Libraries.livedataKtx)
         implementation(Libraries.coroutines)
         implementation(Libraries.coroutinesPlayServices)
+        implementation(Libraries.navigationFragment)
+        implementation(Libraries.navigationUI)
 
         implementation(Libraries.gson)
         implementation(Libraries.hilt)
@@ -87,6 +89,7 @@ android {
         androidTestImplementation(TestLibraries.testRunner)
         androidTestImplementation(TestLibraries.espresso)
         androidTestImplementation(TestLibraries.annotation)
+        androidTestImplementation(TestLibraries.navigationTesting)
 
         testImplementation(TestLibraries.junit4)
     }

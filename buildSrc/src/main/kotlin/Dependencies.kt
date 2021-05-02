@@ -11,6 +11,7 @@ object Versions {
     const val coroutinesVersion = "1.3.9"
     const val lifecycleVersion = "2.3.1"
     const val fragmentKtx = "1.3.3"
+    const val navigationVersion = "2.3.5"
 
     // Version codes for 3rd part libraries
     const val gson = "2.8.6"
@@ -66,6 +67,8 @@ object Libraries {
     const val livedataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycleVersion}"
     const val runtimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleVersion}"
     const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtx}"
+    const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigationVersion}"
+    const val navigationUI = "androidx.navigation:navigation-ui-ktx:${Versions.navigationVersion}"
 
      // 3rd party libraries
     const val gson = "com.google.code.gson:gson:${Versions.gson}"
@@ -87,6 +90,7 @@ object TestLibraries {
     const val testRunner = "androidx.test:runner:${Versions.testRunner}"
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
     const val annotation = "androidx.annotation:annotation:${Versions.annotation}"
+    const val navigationTesting = "androidx.navigation:navigation-testing:${Versions.navigationVersion}"
 }
 
 
