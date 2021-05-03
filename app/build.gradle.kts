@@ -87,8 +87,11 @@ dependencies {
     implementation(Libraries.okhttpLoggingInterceptor)
     implementation(Libraries.timber)
     implementation(Libraries.lottie)
+    implementation(Libraries.roundedImageView)
+    implementation(Libraries.glide)
 
     kapt(LibraryCompilers.hiltCompiler)
+    kapt(LibraryCompilers.glideCompiler)
 
     androidTestImplementation(TestLibraries.testRunner)
     androidTestImplementation(TestLibraries.espresso)

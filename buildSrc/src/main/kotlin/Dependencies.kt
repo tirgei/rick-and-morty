@@ -19,6 +19,8 @@ object Versions {
     const val okhttpLoggingInterceptor = "4.9.0"
     const val timberVersion = "4.1.2"
     const val lottieVersion = "3.7.0"
+    const val roundedImageView = "2.3.0"
+    const val glide = "4.12.0"
 
     //Version codes for all the test libraries
     const val junit4 = "4.13.1"
@@ -80,11 +82,14 @@ object Libraries {
     const val okhttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttpLoggingInterceptor}"
     const val timber = "com.jakewharton.timber:timber:${Versions.timberVersion}"
     const val lottie = "com.airbnb.android:lottie:${Versions.lottieVersion}"
+    const val roundedImageView = "com.makeramen:roundedimageview:${Versions.roundedImageView}"
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
 }
 
 object LibraryCompilers {
     // Any library compilers is added here
     const val hiltCompiler = "com.google.dagger:hilt-compiler:${Versions.hilt}"
+    const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
 }
 
 object TestLibraries {

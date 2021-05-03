@@ -66,6 +66,17 @@
             app:message="@string/message_no_characters"
             app:visible="@{emptyState}"/>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/charactersRv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/topBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:overScrollMode="never"
+            app:visible="@{!loading &amp;&amp; !emptyState}"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
