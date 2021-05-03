@@ -22,5 +22,7 @@ data class CharacterResponse (
     @SerializedName("image")
     val image: String,
     @SerializedName("url")
-    val url: String
+    val url: String,
+    @SerializedName("error")
+    var error: String? = null
 )

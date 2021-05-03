@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tirgei.data.remote.onError
 import com.tirgei.data.remote.onLoading
@@ -45,6 +46,8 @@ class CharactersFragment : BaseFragment<FragmentCharactersBinding>() {
     }
 
     private fun onCharacterClicked(character: Character) {
+        val action = CharactersFragmentDirections.actionCharactersFragmentToCharacterDetailsFragment(character.id)
+        findNavController().navigate(action)
 
     }
 

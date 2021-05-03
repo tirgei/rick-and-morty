@@ -14,7 +14,7 @@ object BindingAdapter {
 
     @JvmStatic
     @BindingAdapter(value = ["app:imageUrl"])
-    fun image(view: ImageView, imageUrl: String) {
+    fun image(view: ImageView, imageUrl: String?) {
         view.load(imageUrl)
     }
 

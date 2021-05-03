@@ -21,6 +21,7 @@ object Versions {
     const val lottieVersion = "3.7.0"
     const val roundedImageView = "2.3.0"
     const val glide = "4.12.0"
+    const val cirlceImageView = "3.1.0"
 
     //Version codes for all the test libraries
     const val junit4 = "4.13.1"
@@ -84,6 +85,7 @@ object Libraries {
     const val lottie = "com.airbnb.android:lottie:${Versions.lottieVersion}"
     const val roundedImageView = "com.makeramen:roundedimageview:${Versions.roundedImageView}"
     const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+    const val circleImageView = "de.hdodenhof:circleimageview:${Versions.cirlceImageView}"
 }
 
 object LibraryCompilers {

@@ -88,6 +88,7 @@ dependencies {
     implementation(Libraries.timber)
     implementation(Libraries.lottie)
     implementation(Libraries.roundedImageView)
+    implementation(Libraries.circleImageView)
     implementation(Libraries.glide)
 
     kapt(LibraryCompilers.hiltCompiler)

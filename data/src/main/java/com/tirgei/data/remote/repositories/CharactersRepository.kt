@@ -25,7 +25,11 @@ class CharactersRepository constructor(private val apiService: ApiService): ICha
         return try {
             withContext(Dispatchers.IO) {
                 val character = apiService.getCharacter(characterId)
-                Result.Success(character.toDomain())
+                if (character.error.isNullOrEmpty()) {
+                    Result.Success(character.toDomain())
+                } else {
+                    Result.Error(character.error ?: "")
+                }
             }
         } catch (e: Exception) {
             Result.Error(e.localizedMessage)
