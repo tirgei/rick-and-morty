@@ -18,6 +18,7 @@ object Versions {
     const val retrofit = "2.9.0"
     const val okhttpLoggingInterceptor = "4.9.0"
     const val timberVersion = "4.1.2"
+    const val lottieVersion = "3.7.0"
 
     //Version codes for all the test libraries
     const val junit4 = "4.13.1"
@@ -78,6 +79,7 @@ object Libraries {
     const val retrofitConverterGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
     const val okhttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttpLoggingInterceptor}"
     const val timber = "com.jakewharton.timber:timber:${Versions.timberVersion}"
+    const val lottie = "com.airbnb.android:lottie:${Versions.lottieVersion}"
 }
 
 object LibraryCompilers {

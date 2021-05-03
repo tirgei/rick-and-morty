@@ -86,6 +86,7 @@ dependencies {
     implementation(Libraries.retrofitConverterGson)
     implementation(Libraries.okhttpLoggingInterceptor)
     implementation(Libraries.timber)
+    implementation(Libraries.lottie)
 
     kapt(LibraryCompilers.hiltCompiler)
 

@@ -32,9 +32,15 @@ class CharactersFragment : BaseFragment<FragmentCharactersBinding>() {
 
     private fun initCharactersObserver() {
         viewModel.charactersLiveData.observe(viewLifecycleOwner, { response ->
-            response.onLoading { Timber.i("Loading...") }
-                .onSuccess { Timber.i("Charcters: $it") }
-                .onError { Timber.e("Error: $it") }
+            response.onLoading { binding.loading = true }
+                .onSuccess {
+                    binding.loading = false
+                    binding.emptyState = true
+                }
+                .onError {
+                    binding.loading = false
+                    binding.emptyState = true
+                }
         })
     }
 
