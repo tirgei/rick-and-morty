@@ -52,6 +52,7 @@ object BuildPlugins {
     const val jacocoAndroid = "com.hiya.jacoco-android"
     const val javaLibrary = "java-library"
     const val secretsGradle = "com.google.secrets_gradle_plugin"
+    const val navigationPlugin = "androidx.navigation.safeargs.kotlin"
 }
 
 object Libraries {

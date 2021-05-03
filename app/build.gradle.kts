@@ -6,6 +6,7 @@ plugins {
     id(BuildPlugins.jacocoAndroid)
     id(BuildPlugins.daggerHiltPlugin)
     id(BuildPlugins.kotlinKapt)
+    id(BuildPlugins.navigationPlugin)
     id(BuildPlugins.secretsGradle) version Versions.secretsGradleVersion
 }
 
@@ -58,39 +59,40 @@ android {
         dataBinding = true
     }
 
-    dependencies {
-        implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-        implementation(project(":data"))
-        implementation(project(":domain"))
+}
 
-        implementation(Libraries.kotlinStandardLibrary)
-        implementation(Libraries.appCompat)
-        implementation(Libraries.ktxCore)
-        implementation(Libraries.constraintLayout)
-        implementation(Libraries.materialComponents)
-        implementation(Libraries.viewModelKtx)
-        implementation(Libraries.runtimeKtx)
-        implementation(Libraries.fragmentKtx)
-        implementation(Libraries.livedataKtx)
-        implementation(Libraries.coroutines)
-        implementation(Libraries.coroutinesPlayServices)
-        implementation(Libraries.navigationFragment)
-        implementation(Libraries.navigationUI)
+dependencies {
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation(project(":data"))
+    implementation(project(":domain"))
 
-        implementation(Libraries.gson)
-        implementation(Libraries.hilt)
-        implementation(Libraries.retrofit)
-        implementation(Libraries.retrofitConverterGson)
-        implementation(Libraries.okhttpLoggingInterceptor)
-        implementation(Libraries.timber)
+    implementation(Libraries.kotlinStandardLibrary)
+    implementation(Libraries.appCompat)
+    implementation(Libraries.ktxCore)
+    implementation(Libraries.constraintLayout)
+    implementation(Libraries.materialComponents)
+    implementation(Libraries.viewModelKtx)
+    implementation(Libraries.runtimeKtx)
+    implementation(Libraries.fragmentKtx)
+    implementation(Libraries.livedataKtx)
+    implementation(Libraries.coroutines)
+    implementation(Libraries.coroutinesPlayServices)
+    implementation(Libraries.navigationFragment)
+    implementation(Libraries.navigationUI)
 
-        kapt(LibraryCompilers.hiltCompiler)
+    implementation(Libraries.gson)
+    implementation(Libraries.hilt)
+    implementation(Libraries.retrofit)
+    implementation(Libraries.retrofitConverterGson)
+    implementation(Libraries.okhttpLoggingInterceptor)
+    implementation(Libraries.timber)
 
-        androidTestImplementation(TestLibraries.testRunner)
-        androidTestImplementation(TestLibraries.espresso)
-        androidTestImplementation(TestLibraries.annotation)
-        androidTestImplementation(TestLibraries.navigationTesting)
+    kapt(LibraryCompilers.hiltCompiler)
 
-        testImplementation(TestLibraries.junit4)
-    }
+    androidTestImplementation(TestLibraries.testRunner)
+    androidTestImplementation(TestLibraries.espresso)
+    androidTestImplementation(TestLibraries.annotation)
+    androidTestImplementation(TestLibraries.navigationTesting)
+
+    testImplementation(TestLibraries.junit4)
 }

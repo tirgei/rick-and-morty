@@ -43,28 +43,12 @@ import javax.inject.Inject
  */
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>() {
-    @Inject
-    lateinit var repository: CharactersRepository
-
-    private val charactersViewModel by viewModels<CharactersViewModel>()
 
     override val bindingInflater: (LayoutInflater) -> ActivityMainBinding
         get() = ActivityMainBinding::inflate
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        charactersViewModel.charactersLiveData.observe(this, { response ->
-            response.onLoading { Timber.i("Loading") }
-                .onSuccess {
-                    Timber.i("Characters: $it")
-                }
-                .onError {
-                    Timber.e("Error: $it")
-                }
-        })
-
-        charactersViewModel.fetchCharacters()
 
     }
 }

@@ -38,6 +38,7 @@ buildscript {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}")
         classpath("com.hiya:jacoco-android:$jacocoVersion")
         classpath("com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}")
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigationVersion}")
     }
 }
 
