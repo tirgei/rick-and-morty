@@ -3,6 +3,7 @@ plugins {
     id(BuildPlugins.androidLibrary)
     id(BuildPlugins.kotlinAndroid)
     id(BuildPlugins.kotlinKapt)
+    id(BuildPlugins.daggerHiltPlugin)
 }
 
 android {
@@ -35,6 +36,10 @@ dependencies {
 
     implementation(Libraries.coroutines)
     implementation(Libraries.coroutinesPlayServices)
+
+    // Hilt
+    implementation(Libraries.hilt)
+    kapt(LibraryCompilers.hiltCompiler)
 
     // Room
     implementation(Libraries.roomKtx)

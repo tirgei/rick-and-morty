@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
 interface CharactersDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(vararg characterEntities: CharacterEntity)
+    fun insertAll(characterEntities: List<CharacterEntity>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun saveCharacter(characterEntity: CharacterEntity)

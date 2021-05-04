@@ -17,9 +17,9 @@ data class CharacterEntity(
     val type: String,
     val gender: CharacterGender,
     @Embedded(prefix = "origin_location_")
-    val origin: Location,
+    val origin: LocationEntity,
     @Embedded(prefix = "current_location_")
-    val location: Location,
+    val location: LocationEntity,
     val image: String,
     val url: String,
     val episodes: List<String>
