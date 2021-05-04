@@ -14,4 +14,14 @@
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Content.Title" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="Content.Description" parent="Content.Title">
+        <item name="android:alpha">0.6</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
 </resources>

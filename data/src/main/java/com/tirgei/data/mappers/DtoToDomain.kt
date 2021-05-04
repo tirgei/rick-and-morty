@@ -20,7 +20,8 @@ internal fun CharacterResponse.toDomain(): Character {
         origin = this.origin.toDomain(),
         location = this.location.toDomain(),
         image = this.image,
-        url = this.url
+        url = this.url,
+        episodes = this.episodes
     )
 }
 

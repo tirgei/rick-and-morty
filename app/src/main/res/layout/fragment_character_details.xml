@@ -52,16 +52,16 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="10dp">
+                android:padding="16dp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/avatar"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="20dp"
+                    android:scaleType="centerCrop"
                     app:imageUrl="@{character.image}"/>
 
                 <TextView
@@ -72,7 +72,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginTop="10dp"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:textColor="?attr/colorOnPrimary"
                     android:textStyle="bold"
                     android:text="@{character.name}"
@@ -85,13 +85,107 @@
                     app:layout_constraintTop_toBottomOf="@id/name"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="10dp"
                     android:textSize="18sp"
                     android:textColor="?attr/colorOnPrimary"
                     android:textStyle="bold"
                     android:alpha="0.6"
                     android:text="@{character.status.toKey()}"
                     tools:text="@string/placeholder_short"/>
+
+                <TextView
+                    android:id="@+id/genderTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/status"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/title_gender"
+                    style="@style/Content.Title"/>
+
+                <TextView
+                    android:id="@+id/gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/genderTitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="@{character.gender.toKey()}"
+                    style="@style/Content.Description"/>
+
+                <TextView
+                    android:id="@+id/speciesTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/gender"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/title_species"
+                    style="@style/Content.Title"/>
+
+                <TextView
+                    android:id="@+id/species"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/speciesTitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="@{character.species}"
+                    style="@style/Content.Description"/>
+
+                <TextView
+                    android:id="@+id/originTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/species"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/title_origin"
+                    style="@style/Content.Title"/>
+
+                <TextView
+                    android:id="@+id/origin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/originTitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="@{character.origin.name}"
+                    style="@style/Content.Description"/>
+
+                <TextView
+                    android:id="@+id/locationTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/origin"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/title_location"
+                    style="@style/Content.Title"/>
+
+                <TextView
+                    android:id="@+id/location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/locationTitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="@{character.location.name}"
+                    style="@style/Content.Description"/>
+
+                <TextView
+                    android:id="@+id/episodesTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/location"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/title_episodes"
+                    style="@style/Content.Title"/>
+
+                <TextView
+                    android:id="@+id/episodes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/episodesTitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="@{String.valueOf(character.episodes.size())}"
+                    style="@style/Content.Description"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

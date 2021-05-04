@@ -24,5 +24,7 @@ data class CharacterResponse (
     @SerializedName("url")
     val url: String,
     @SerializedName("error")
-    var error: String? = null
+    var error: String? = null,
+    @SerializedName("episode")
+    var episodes: List<String> = emptyList()
 )

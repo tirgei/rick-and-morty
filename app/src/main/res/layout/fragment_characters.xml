@@ -35,7 +35,7 @@
                 android:layout_weight="1"
                 android:text="@string/title_characters"
                 android:textColor="?attr/colorOnPrimary"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:textStyle="bold"/>
 
             <ImageButton
