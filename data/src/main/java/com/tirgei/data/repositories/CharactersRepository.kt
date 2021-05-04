@@ -35,6 +35,8 @@ class CharactersRepository @Inject constructor(
                 offer(Result.Error(e.localizedMessage ?: "Error fetching characters"))
             }
         }
+
+        awaitClose()
     }
 
     override suspend fun getCharacter(characterId: Int): Flow<Result<Character>> = callbackFlow {
@@ -52,6 +54,8 @@ class CharactersRepository @Inject constructor(
                 offer(Result.Error(e.localizedMessage ?: "Error fetching character"))
             }
         }
+
+        awaitClose()
     }
 
 
