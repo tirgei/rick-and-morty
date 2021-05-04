@@ -14,6 +14,7 @@ import com.tirgei.rickandmorty.databinding.FragmentCharacterDetailsBinding
 import com.tirgei.rickandmorty.ui.base.BaseFragment
 import com.tirgei.rickandmorty.ui.viewmodels.CharactersViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class CharacterDetailsFragment : BaseFragment<FragmentCharacterDetailsBinding>() {
@@ -41,7 +42,10 @@ class CharacterDetailsFragment : BaseFragment<FragmentCharacterDetailsBinding>()
                     binding.loading = false
                     binding.character = character
                 }
-                .onError { findNavController().navigateUp() }
+                .onError {
+                    Timber.e("Error fetching character ${args.characterId}: $it")
+                    findNavController().navigateUp()
+                }
         })
     }
 }

@@ -1,6 +1,6 @@
 package com.tirgei.rickandmorty.di
 
-import com.tirgei.data.remote.repositories.CharactersRepository
+import com.tirgei.data.repositories.CharactersRepository
 import com.tirgei.domain.usecases.GetCharacterUseCase
 import com.tirgei.domain.usecases.GetCharactersUseCase
 import dagger.Module

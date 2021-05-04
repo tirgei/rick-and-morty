@@ -9,6 +9,7 @@ import com.tirgei.domain.usecases.GetCharacterUseCase
 import com.tirgei.domain.usecases.GetCharactersUseCase
 import com.tirgei.rickandmorty.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.collectLatest
 import javax.inject.Inject
 
 @HiltViewModel
@@ -27,9 +28,10 @@ class CharactersViewModel @Inject constructor(
         _charactersLiveData.postValue(NetworkResponse.Loading)
 
         launchCoroutine {
-            val result = getCharactersUseCase.invoke()
-            result.onSuccess { characters -> _charactersLiveData.postValue(NetworkResponse.Success(characters)) }
-                .onError { error -> _charactersLiveData.postValue(NetworkResponse.Error(error)) }
+            getCharactersUseCase.invoke().collectLatest { result ->
+                result.onSuccess { characters -> _charactersLiveData.postValue(NetworkResponse.Success(characters)) }
+                    .onError { error -> _charactersLiveData.postValue(NetworkResponse.Error(error)) }
+            }
         }
     }
 
@@ -37,9 +39,10 @@ class CharactersViewModel @Inject constructor(
         _characterLiveData.postValue(NetworkResponse.Loading)
 
         launchCoroutine {
-            getCharacterUseCase.invoke(id)
-                .onSuccess { character -> _characterLiveData.postValue(NetworkResponse.Success(character)) }
-                .onError { error -> _characterLiveData.postValue(NetworkResponse.Error(error)) }
+            getCharacterUseCase.invoke(id).collectLatest { result ->
+                result.onSuccess { character -> _characterLiveData.postValue(NetworkResponse.Success(character)) }
+                    .onError { error -> _characterLiveData.postValue(NetworkResponse.Error(error)) }
+            }
         }
     }
 

@@ -89,8 +89,11 @@ dependencies {
     implementation(Libraries.lottie)
     implementation(Libraries.roundedImageView)
     implementation(Libraries.circleImageView)
-    implementation(Libraries.glide)
+    implementation(Libraries.glide)// Room
+    implementation(Libraries.roomKtx)
+    implementation(Libraries.roomRuntime)
 
+    kapt(LibraryCompilers.roomCompiler)
     kapt(LibraryCompilers.hiltCompiler)
     kapt(LibraryCompilers.glideCompiler)
 

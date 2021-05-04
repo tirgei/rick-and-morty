@@ -1,4 +1,4 @@
-package com.tirgei.data.remote.repositories
+package com.tirgei.data.repositories
 
 import com.tirgei.data.cache.dao.CharactersDao
 import com.tirgei.data.mappers.toDomain
@@ -9,7 +9,6 @@ import com.tirgei.domain.models.Character
 import com.tirgei.domain.repositories.ICharactersRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.withContext

@@ -67,6 +67,7 @@ class CharactersFragment : BaseFragment<FragmentCharactersBinding>() {
                 .onError {
                     binding.loading = false
                     binding.emptyState = true
+                    Timber.e("Error fetching characters: $it")
                 }
         })
     }

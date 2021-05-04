@@ -17,26 +17,9 @@ package com.tirgei.rickandmorty.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
-import com.tirgei.data.remote.onError
-import com.tirgei.data.remote.onLoading
-import com.tirgei.data.remote.onSuccess
-import com.tirgei.data.remote.repositories.CharactersRepository
-import com.tirgei.domain.onError
-import com.tirgei.domain.onSuccess
-import com.tirgei.rickandmorty.R
 import com.tirgei.rickandmorty.databinding.ActivityMainBinding
 import com.tirgei.rickandmorty.ui.base.BaseActivity
-import com.tirgei.rickandmorty.ui.viewmodels.CharactersViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import timber.log.Timber
-import javax.inject.Inject
 
 /**
  *  Main Activity which is the Launcher Activity
