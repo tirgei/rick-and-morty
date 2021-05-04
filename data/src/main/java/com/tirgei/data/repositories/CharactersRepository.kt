@@ -10,8 +10,10 @@ import com.tirgei.domain.repositories.ICharactersRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
@@ -19,11 +21,13 @@ class CharactersRepository @Inject constructor(
     private val apiService: ApiService, private val dao: CharactersDao): ICharactersRepository {
 
     override suspend fun getCharacters(): Flow<Result<List<Character>>> = callbackFlow {
-        withContext(Dispatchers.IO) {
+        launch(Dispatchers.IO) {
             dao.getAll().collect {
                 offer(Result.Success(it.toDomain()))
             }
+        }
 
+        launch(Dispatchers.IO) {
             try {
                 val characters = apiService.getCharacters()
                 dao.insertAll(characters.results.toEntity())
@@ -31,16 +35,16 @@ class CharactersRepository @Inject constructor(
                 offer(Result.Error(e.localizedMessage ?: "Error fetching characters"))
             }
         }
-
-        awaitClose()
     }
 
     override suspend fun getCharacter(characterId: Int): Flow<Result<Character>> = callbackFlow {
-        withContext(Dispatchers.IO) {
+        launch(Dispatchers.IO) {
             dao.getCharacter(characterId).collect {
                 offer(Result.Success(it.toDomain()))
             }
+        }
 
+        launch(Dispatchers.IO) {
             try {
                 val character = apiService.getCharacter(characterId)
                 dao.saveCharacter(character.toEntity())
@@ -48,8 +52,6 @@ class CharactersRepository @Inject constructor(
                 offer(Result.Error(e.localizedMessage ?: "Error fetching character"))
             }
         }
-
-        awaitClose()
     }
 
 

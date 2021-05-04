@@ -3,19 +3,16 @@ package com.tirgei.data.cache.entities
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.tirgei.domain.enums.CharacterGender
-import com.tirgei.domain.enums.CharacterStatus
-import com.tirgei.domain.models.Location
 
 @Entity(tableName = "characters")
 data class CharacterEntity(
     @PrimaryKey
     val id: Int,
     val name: String,
-    val status: CharacterStatus,
+    val status: String,
     val species: String,
     val type: String,
-    val gender: CharacterGender,
+    val gender: String,
     @Embedded(prefix = "origin_location_")
     val origin: LocationEntity,
     @Embedded(prefix = "current_location_")

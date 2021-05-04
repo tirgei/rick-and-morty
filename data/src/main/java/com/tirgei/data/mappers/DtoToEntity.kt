@@ -4,15 +4,13 @@ import com.tirgei.data.cache.entities.CharacterEntity
 import com.tirgei.data.cache.entities.LocationEntity
 import com.tirgei.data.remote.responses.CharacterResponse
 import com.tirgei.data.remote.responses.LocationResponse
-import com.tirgei.domain.enums.CharacterGender
-import com.tirgei.domain.enums.CharacterStatus
 
 internal fun CharacterResponse.toEntity(): CharacterEntity {
     return CharacterEntity(
         id = this.id,
         name = this.name,
-        gender = CharacterGender.UNKNOWN.fromKey(this.gender),
-        status = CharacterStatus.UNKNOWN.fromKey(this.status),
+        gender = this.gender,
+        status = this.status,
         species = this.species,
         type = this.type,
         origin = this.origin.toEntity(),

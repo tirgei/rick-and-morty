@@ -12,6 +12,7 @@ class CharactersAdapter(private val callback: (Character) -> Unit) : RecyclerVie
     private val characters = mutableListOf<Character>()
 
     fun addCharacters(characters: List<Character>) {
+        this.characters.clear()
         this.characters.addAll(characters)
         notifyDataSetChanged()
     }

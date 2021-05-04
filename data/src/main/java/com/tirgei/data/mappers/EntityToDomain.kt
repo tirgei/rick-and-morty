@@ -2,6 +2,8 @@ package com.tirgei.data.mappers
 
 import com.tirgei.data.cache.entities.CharacterEntity
 import com.tirgei.data.cache.entities.LocationEntity
+import com.tirgei.domain.enums.CharacterGender
+import com.tirgei.domain.enums.CharacterStatus
 import com.tirgei.domain.models.Character
 import com.tirgei.domain.models.Location
 
@@ -9,8 +11,8 @@ internal fun CharacterEntity.toDomain(): Character {
     return Character(
         id = this.id,
         name = this.name,
-        gender = this.gender,
-        status = this.status,
+        gender = CharacterGender.UNKNOWN.fromKey(this.gender),
+        status = CharacterStatus.UNKNOWN.fromKey(this.status),
         species = this.species,
         type = this.type,
         origin = this.origin.toDomain(),
