@@ -12,6 +12,7 @@ object Versions {
     const val lifecycleVersion = "2.3.1"
     const val fragmentKtx = "1.3.3"
     const val navigationVersion = "2.3.5"
+    const val room = "2.3.0"
 
     // Version codes for 3rd part libraries
     const val gson = "2.8.6"
@@ -74,6 +75,8 @@ object Libraries {
     const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtx}"
     const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigationVersion}"
     const val navigationUI = "androidx.navigation:navigation-ui-ktx:${Versions.navigationVersion}"
+    const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
+    const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
 
      // 3rd party libraries
     const val gson = "com.google.code.gson:gson:${Versions.gson}"
@@ -92,6 +95,7 @@ object LibraryCompilers {
     // Any library compilers is added here
     const val hiltCompiler = "com.google.dagger:hilt-compiler:${Versions.hilt}"
     const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
+    const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
 }
 
 object TestLibraries {
@@ -101,6 +105,7 @@ object TestLibraries {
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
     const val annotation = "androidx.annotation:annotation:${Versions.annotation}"
     const val navigationTesting = "androidx.navigation:navigation-testing:${Versions.navigationVersion}"
+    const val roomTesting = "androidx.room:room-testing:${Versions.room}"
 }
 
 
