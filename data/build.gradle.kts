@@ -52,7 +52,25 @@ dependencies {
     implementation(Libraries.retrofitConverterGson)
     implementation(Libraries.okhttpLoggingInterceptor)
 
-    // Tests
-    androidTestImplementation(TestLibraries.roomTesting)
+    // Unit Tests
+    api(TestLibraries.androidxTest)
+    testApi(TestLibraries.junit4)
+    testApi(TestLibraries.hamcrest)
+    testApi(TestLibraries.androidXCoreTest)
+    testApi(TestLibraries.robolectric)
+    testApi(TestLibraries.coroutinesTest)
+    testApi(TestLibraries.googleTruth)
+    testApi(TestLibraries.mockitoCore)
+
+    // Instrumented Tests
+    androidTestApi(TestLibraries.junit4)
+    androidTestApi(TestLibraries.roomTesting)
+    androidTestApi(TestLibraries.androidXCoreTest)
+    androidTestApi(TestLibraries.androidxJunit)
+    androidTestApi(TestLibraries.coroutinesTest)
+    androidTestApi(TestLibraries.googleTruth)
+    androidTestApi(TestLibraries.dexmakerMockito)
+    androidTestApi(TestLibraries.mockitoCore)
+    androidTestApi(TestLibraries.espresso)
 
 }
