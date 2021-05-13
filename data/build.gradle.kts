@@ -28,6 +28,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
+    packagingOptions {
+        pickFirst("META-INF/*")
+    }
+
 }
 
 dependencies {
@@ -53,24 +58,25 @@ dependencies {
     implementation(Libraries.okhttpLoggingInterceptor)
 
     // Unit Tests
-    api(TestLibraries.androidxTest)
-    testApi(TestLibraries.junit4)
-    testApi(TestLibraries.hamcrest)
-    testApi(TestLibraries.androidXCoreTest)
-    testApi(TestLibraries.robolectric)
-    testApi(TestLibraries.coroutinesTest)
-    testApi(TestLibraries.googleTruth)
-    testApi(TestLibraries.mockitoCore)
+    testImplementation(TestLibraries.junit4)
+    testImplementation(TestLibraries.hamcrest)
+    testImplementation(TestLibraries.androidXCoreTest)
+    testImplementation(TestLibraries.robolectric)
+    testImplementation(TestLibraries.coroutinesTest)
+    testImplementation(TestLibraries.googleTruth)
+    testImplementation(TestLibraries.mockitoCore)
+    testImplementation(TestLibraries.turbine)
 
     // Instrumented Tests
-    androidTestApi(TestLibraries.junit4)
-    androidTestApi(TestLibraries.roomTesting)
-    androidTestApi(TestLibraries.androidXCoreTest)
-    androidTestApi(TestLibraries.androidxJunit)
-    androidTestApi(TestLibraries.coroutinesTest)
-    androidTestApi(TestLibraries.googleTruth)
-    androidTestApi(TestLibraries.dexmakerMockito)
-    androidTestApi(TestLibraries.mockitoCore)
-    androidTestApi(TestLibraries.espresso)
+    androidTestImplementation(TestLibraries.junit4)
+    androidTestImplementation(TestLibraries.roomTesting)
+    androidTestImplementation(TestLibraries.androidXCoreTest)
+    androidTestImplementation(TestLibraries.androidxJunit)
+    androidTestImplementation(TestLibraries.coroutinesTest)
+    androidTestImplementation(TestLibraries.googleTruth)
+    androidTestImplementation(TestLibraries.dexmakerMockito)
+    androidTestImplementation(TestLibraries.mockitoCore)
+    androidTestImplementation(TestLibraries.espresso)
+    androidTestImplementation(TestLibraries.turbine)
 
 }

@@ -15,6 +15,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral()
         maven(url = "https://jitpack.io")
         maven("https://dl.bintray.com/kotlin/kotlin-eap")
     }

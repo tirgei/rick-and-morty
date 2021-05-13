@@ -29,16 +29,15 @@ object Versions {
     const val testRunner = "1.3.1-alpha03"
     const val espresso = "3.4.0-alpha03"
     const val annotation = "1.2.0-beta01"
-    const val androidXTest = "1.2.0"
     const val androidXCoreTest = "2.1.0"
     const val hamcrest = "1.3"
     const val robolectric = "4.3.1"
-    const val coroutinesTest = "1.2.1"
     const val googleTruth = "1.0.1"
     const val mockk = "1.10.6"
     const val androidxJunit = "1.1.1"
     const val mockito = "2.21.0"
     const val dexmakerMockito = "2.12.1"
+    const val turbine = "0.5.0-rc1"
 
     // Gradle Plugins
     const val ktlint = "9.4.1"
@@ -65,7 +64,6 @@ object BuildPlugins {
     const val kotlinParcelizePlugin = "org.jetbrains.kotlin.plugin.parcelize"
     const val gradleVersionsPlugin = "com.github.ben-manes.versions"
     const val jacocoAndroid = "com.hiya.jacoco-android"
-    const val javaLibrary = "java-library"
     const val secretsGradle = "com.google.secrets_gradle_plugin"
     const val navigationPlugin = "androidx.navigation.safeargs.kotlin"
 }
@@ -110,7 +108,6 @@ object LibraryCompilers {
 
 object TestLibraries {
     //any test library is added here
-    const val androidxTest = "androidx.test.core:${Versions.androidXTest}"
     const val androidXCoreTest = "androidx.arch.core:core-testing:${Versions.androidXCoreTest}"
     const val junit4 = "junit:junit:${Versions.junit4}"
     const val testRunner = "androidx.test:runner:${Versions.testRunner}"
@@ -120,13 +117,14 @@ object TestLibraries {
     const val roomTesting = "androidx.room:room-testing:${Versions.room}"
     const val hamcrest = "org.hamcrest:hamcrest-all:${Versions.hamcrest}"
     const val robolectric = "org.robolectric:robolectric:${Versions.robolectric}"
-    const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesTest}"
+    const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesVersion}"
     const val googleTruth = "com.google.truth:truth:${Versions.googleTruth}"
     const val mockk = "io.mockk:mockk:${Versions.mockk}"
     const val mockkAndroid = "io.mockk:mockk-android:${Versions.mockk}"
     const val androidxJunit = "androidx.test.ext:junit:${Versions.androidxJunit}"
     const val mockitoCore = "org.mockito:mockito-core:${Versions.mockito}"
     const val dexmakerMockito = "com.linkedin.dexmaker:dexmaker-mockito:${Versions.dexmakerMockito}"
+    const val turbine = "app.cash.turbine:turbine:${Versions.turbine}"
 }
 
 object AndroidSdk {
