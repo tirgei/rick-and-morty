@@ -97,10 +97,14 @@ dependencies {
     kapt(LibraryCompilers.hiltCompiler)
     kapt(LibraryCompilers.glideCompiler)
 
+    testImplementation(TestLibraries.junit4)
+    testImplementation(TestLibraries.googleTruth)
+    testImplementation(TestLibraries.coroutinesTest)
+    testImplementation(TestLibraries.androidXCoreTest)
+
     androidTestImplementation(TestLibraries.testRunner)
     androidTestImplementation(TestLibraries.espresso)
     androidTestImplementation(TestLibraries.annotation)
+    androidTestImplementation(TestLibraries.googleTruth)
     androidTestImplementation(TestLibraries.navigationTesting)
-
-    testImplementation(TestLibraries.junit4)
 }

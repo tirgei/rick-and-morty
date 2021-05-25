@@ -32,7 +32,7 @@ class CharacterDetailsFragment : BaseFragment<FragmentCharacterDetailsBinding>()
         }
 
         initCharacterObserver()
-        viewModel.fetchSpecificCharacter(args.characterId)
+        viewModel.fetchCharacter(args.characterId)
     }
 
     private fun initCharacterObserver() {

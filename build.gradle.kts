@@ -30,6 +30,12 @@ allprojects {
             exclude { element -> element.file.path.contains("generated/") }
         }
     }
+
+    configurations.all {
+        resolutionStrategy {
+            force("org.xerial:sqlite-jdbc:3.34.0")
+        }
+    }
 }
 
 buildscript {

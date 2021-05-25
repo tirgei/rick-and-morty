@@ -46,10 +46,16 @@ class FakeCharactersRepository : ICharactersRepository {
     }
 
     override suspend fun getCharacter(characterId: Int): Flow<Result<Character>> {
+        val errorMessage = "Unable to fetch character"
         return if (shouldReturnNetworkError) {
-            flowOf(Result.Error("Unable to fetch character"))
+            flowOf(Result.Error(errorMessage))
         } else {
-            flowOf(Result.Success(characters.first { it.id == characterId }))
+            val character = characters.firstOrNull { it.id == characterId }
+            if (character == null) {
+                flowOf(Result.Error(errorMessage))
+            } else {
+                flowOf(Result.Success(character))
+            }
         }
     }
 

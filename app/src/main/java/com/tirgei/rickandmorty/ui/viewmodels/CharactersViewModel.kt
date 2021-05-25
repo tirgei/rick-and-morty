@@ -35,7 +35,7 @@ class CharactersViewModel @Inject constructor(
         }
     }
 
-    fun fetchSpecificCharacter(id: Int) {
+    fun fetchCharacter(id: Int) {
         _characterLiveData.postValue(NetworkResponse.Loading)
 
         launchCoroutine {
