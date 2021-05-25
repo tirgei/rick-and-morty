@@ -1,6 +1,6 @@
 package com.tirgei.rickandmorty.di
 
-import com.tirgei.data.repositories.CharactersRepository
+import com.tirgei.domain.repositories.ICharactersRepository
 import com.tirgei.domain.usecases.GetCharacterUseCase
 import com.tirgei.domain.usecases.GetCharactersUseCase
 import dagger.Module
@@ -11,17 +11,17 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class UseCasesModule {
+object UseCasesModule {
 
     @Provides
     @Singleton
-    fun getCharactersUseCase(repository: CharactersRepository): GetCharactersUseCase {
+    fun getCharactersUseCase(repository: ICharactersRepository): GetCharactersUseCase {
         return GetCharactersUseCase(repository)
     }
 
     @Provides
     @Singleton
-    fun getCharacterUseCase(repository: CharactersRepository): GetCharacterUseCase {
+    fun getCharacterUseCase(repository: ICharactersRepository): GetCharacterUseCase {
         return GetCharacterUseCase(repository)
     }
 
