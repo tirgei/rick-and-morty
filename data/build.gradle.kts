@@ -13,7 +13,7 @@ android {
     defaultConfig {
         minSdkVersion(AndroidSdk.minSdkVersion)
         targetSdkVersion(AndroidSdk.targetSdkVersion)
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.tirgei.data.HiltTestRunner"
     }
 
     testOptions {
@@ -78,5 +78,7 @@ dependencies {
     androidTestImplementation(TestLibraries.mockitoCore)
     androidTestImplementation(TestLibraries.espresso)
     androidTestImplementation(TestLibraries.turbine)
+    androidTestImplementation(TestLibraries.hilt)
+    kaptAndroidTest(LibraryCompilers.hiltCompiler)
 
 }
