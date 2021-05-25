@@ -107,4 +107,7 @@ dependencies {
     androidTestImplementation(TestLibraries.annotation)
     androidTestImplementation(TestLibraries.googleTruth)
     androidTestImplementation(TestLibraries.navigationTesting)
+    androidTestImplementation(TestLibraries.hilt)
+    kaptAndroidTest(LibraryCompilers.hiltCompiler)
+    debugImplementation(TestLibraries.fragmentTesting)
 }

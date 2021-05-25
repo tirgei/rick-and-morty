@@ -126,6 +126,7 @@ object TestLibraries {
     const val dexmakerMockito = "com.linkedin.dexmaker:dexmaker-mockito:${Versions.dexmakerMockito}"
     const val turbine = "app.cash.turbine:turbine:${Versions.turbine}"
     const val hilt = "com.google.dagger:hilt-android-testing:${Versions.hilt}"
+    const val fragmentTesting = "androidx.fragment:fragment-testing:${Versions.fragmentKtx}"
 }
 
 object AndroidSdk {
