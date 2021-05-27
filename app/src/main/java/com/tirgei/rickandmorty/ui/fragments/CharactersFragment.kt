@@ -1,7 +1,6 @@
 package com.tirgei.rickandmorty.ui.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +11,6 @@ import com.tirgei.data.remote.onError
 import com.tirgei.data.remote.onLoading
 import com.tirgei.data.remote.onSuccess
 import com.tirgei.domain.models.Character
-import com.tirgei.rickandmorty.R
 import com.tirgei.rickandmorty.databinding.FragmentCharactersBinding
 import com.tirgei.rickandmorty.ui.adapters.CharactersAdapter
 import com.tirgei.rickandmorty.ui.base.BaseFragment
