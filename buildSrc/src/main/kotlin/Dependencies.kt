@@ -38,6 +38,7 @@ object Versions {
     const val mockito = "2.21.0"
     const val dexmakerMockito = "2.12.1"
     const val turbine = "0.5.0-rc1"
+    const val testCore = "1.0.0"
 
     // Gradle Plugins
     const val ktlint = "9.4.1"
@@ -126,6 +127,7 @@ object TestLibraries {
     const val dexmakerMockito = "com.linkedin.dexmaker:dexmaker-mockito:${Versions.dexmakerMockito}"
     const val turbine = "app.cash.turbine:turbine:${Versions.turbine}"
     const val hilt = "com.google.dagger:hilt-android-testing:${Versions.hilt}"
+    const val androidxTestCore = "androidx.test:core:${Versions.testCore}"
     const val fragmentTesting = "androidx.fragment:fragment-testing:${Versions.fragmentKtx}"
 }
 

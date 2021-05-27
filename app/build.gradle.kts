@@ -28,7 +28,7 @@ android {
         targetSdkVersion(AndroidSdk.targetSdkVersion)
         versionCode = AndroidSdk.versionCode
         versionName = AndroidSdk.versionName
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.tirgei.rickandmorty.HiltTestRunner"
     }
 
     testOptions {
@@ -57,6 +57,10 @@ android {
 
     buildFeatures {
         dataBinding = true
+    }
+
+    packagingOptions {
+        exclude("META-INF/*")
     }
 
 }
@@ -102,12 +106,21 @@ dependencies {
     testImplementation(TestLibraries.coroutinesTest)
     testImplementation(TestLibraries.androidXCoreTest)
 
+    androidTestImplementation(TestLibraries.junit4)
     androidTestImplementation(TestLibraries.testRunner)
+    androidTestImplementation(TestLibraries.androidXCoreTest)
+    androidTestImplementation(TestLibraries.androidxJunit)
+    androidTestImplementation(TestLibraries.coroutinesTest)
     androidTestImplementation(TestLibraries.espresso)
     androidTestImplementation(TestLibraries.annotation)
     androidTestImplementation(TestLibraries.googleTruth)
     androidTestImplementation(TestLibraries.navigationTesting)
+    androidTestImplementation(TestLibraries.mockitoCore)
+    androidTestImplementation(TestLibraries.dexmakerMockito)
     androidTestImplementation(TestLibraries.hilt)
     kaptAndroidTest(LibraryCompilers.hiltCompiler)
-    debugImplementation(TestLibraries.fragmentTesting)
+    debugImplementation(TestLibraries.fragmentTesting) {
+        exclude(group = "androidx.test", module = "core")
+    }
+//    debugImplementation(TestLibraries.androidxTestCore)
 }
