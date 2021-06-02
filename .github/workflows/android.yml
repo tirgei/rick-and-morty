@@ -22,5 +22,5 @@ jobs:
       env:
         ENV_PROPS: ${{ secrets.LOCAL_PROPERTIES }}
     - name: Build with Gradle
-      run: ls && cat local.properties
+      run: cat local.properties
 
