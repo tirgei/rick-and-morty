@@ -4,6 +4,10 @@ plugins {
     id(BuildPlugins.kotlinParcelizePlugin)
     id(BuildPlugins.ktlintPlugin)
     id(BuildPlugins.jacocoAndroid)
+    id(BuildPlugins.daggerHiltPlugin)
+    id(BuildPlugins.kotlinKapt)
+    id(BuildPlugins.navigationPlugin)
+    id(BuildPlugins.secretsGradle) version Versions.secretsGradleVersion
 }
 
 jacoco {
@@ -13,18 +17,18 @@ jacoco {
 android {
 
     compileSdkVersion(AndroidSdk.compileSdkVersion)
-    buildToolsVersion("30.0.2")
+    buildToolsVersion(AndroidSdk.buildToolsVersion)
 
     android.buildFeatures.dataBinding = true
     android.buildFeatures.viewBinding = true
 
     defaultConfig {
-        applicationId = "ke.co.appslab.gradleplugins"
+        applicationId = "com.tirgei.rickandmorty"
         minSdkVersion(AndroidSdk.minSdkVersion)
         targetSdkVersion(AndroidSdk.targetSdkVersion)
         versionCode = AndroidSdk.versionCode
         versionName = AndroidSdk.versionName
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.tirgei.rickandmorty.HiltTestRunner"
     }
 
     testOptions {
@@ -51,18 +55,72 @@ android {
         }
     }
 
-    dependencies {
-        implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-        implementation(Libraries.kotlinStandardLibrary)
-        implementation(Libraries.appCompat)
-        implementation(Libraries.ktxCore)
-        implementation(Libraries.constraintLayout)
-        implementation(Libraries.materialComponents)
-
-        androidTestImplementation(TestLibraries.testRunner)
-        androidTestImplementation(TestLibraries.espresso)
-        androidTestImplementation(TestLibraries.annotation)
-
-        testImplementation(TestLibraries.junit4)
+    buildFeatures {
+        dataBinding = true
     }
+
+    packagingOptions {
+        exclude("META-INF/*")
+    }
+
+}
+
+dependencies {
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation(project(":data"))
+    implementation(project(":domain"))
+
+    implementation(Libraries.kotlinStandardLibrary)
+    implementation(Libraries.appCompat)
+    implementation(Libraries.ktxCore)
+    implementation(Libraries.constraintLayout)
+    implementation(Libraries.materialComponents)
+    implementation(Libraries.viewModelKtx)
+    implementation(Libraries.runtimeKtx)
+    implementation(Libraries.fragmentKtx)
+    implementation(Libraries.livedataKtx)
+    implementation(Libraries.coroutines)
+    implementation(Libraries.coroutinesPlayServices)
+    implementation(Libraries.navigationFragment)
+    implementation(Libraries.navigationUI)
+
+    implementation(Libraries.gson)
+    implementation(Libraries.hilt)
+    implementation(Libraries.retrofit)
+    implementation(Libraries.retrofitConverterGson)
+    implementation(Libraries.okhttpLoggingInterceptor)
+    implementation(Libraries.timber)
+    implementation(Libraries.lottie)
+    implementation(Libraries.roundedImageView)
+    implementation(Libraries.circleImageView)
+    implementation(Libraries.glide)// Room
+    implementation(Libraries.roomKtx)
+    implementation(Libraries.roomRuntime)
+
+    kapt(LibraryCompilers.roomCompiler)
+    kapt(LibraryCompilers.hiltCompiler)
+    kapt(LibraryCompilers.glideCompiler)
+
+    testImplementation(TestLibraries.junit4)
+    testImplementation(TestLibraries.googleTruth)
+    testImplementation(TestLibraries.coroutinesTest)
+    testImplementation(TestLibraries.androidXCoreTest)
+
+    androidTestImplementation(TestLibraries.junit4)
+    androidTestImplementation(TestLibraries.testRunner)
+    androidTestImplementation(TestLibraries.androidXCoreTest)
+    androidTestImplementation(TestLibraries.androidxJunit)
+    androidTestImplementation(TestLibraries.coroutinesTest)
+    androidTestImplementation(TestLibraries.espresso)
+    androidTestImplementation(TestLibraries.annotation)
+    androidTestImplementation(TestLibraries.googleTruth)
+    androidTestImplementation(TestLibraries.navigationTesting)
+    androidTestImplementation(TestLibraries.mockitoCore)
+    androidTestImplementation(TestLibraries.dexmakerMockito)
+    androidTestImplementation(TestLibraries.hilt)
+    kaptAndroidTest(LibraryCompilers.hiltCompiler)
+    debugImplementation(TestLibraries.fragmentTesting) {
+        exclude(group = "androidx.test", module = "core")
+    }
+//    debugImplementation(TestLibraries.androidxTestCore)
 }

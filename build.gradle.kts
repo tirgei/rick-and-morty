@@ -15,6 +15,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral()
         maven(url = "https://jitpack.io")
         maven("https://dl.bintray.com/kotlin/kotlin-eap")
     }
@@ -29,15 +30,22 @@ allprojects {
             exclude { element -> element.file.path.contains("generated/") }
         }
     }
+
+    configurations.all {
+        resolutionStrategy {
+            force("org.xerial:sqlite-jdbc:3.34.0")
+        }
+    }
 }
 
 buildscript {
-    val kotlinVersion by extra("1.4.10")
     val jacocoVersion by extra("0.2")
 
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}")
         classpath("com.hiya:jacoco-android:$jacocoVersion")
+        classpath("com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}")
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigationVersion}")
     }
 }
 
