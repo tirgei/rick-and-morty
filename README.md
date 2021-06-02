@@ -1,39 +1,104 @@
-# GradleBuildPlugins
+# Rick & Morty 
 
-👀 Sample project that shows you how to configure plugins. After generating the project from this template, remember that you need to customize detekt rules and spotless plugin, if needed:
+This app consumes data from the Rick & Morty [API](https://rickandmortyapi.com/). The app is built using Kotlin and encompasses 
+the Clean Architecture principle with MVVM approach and Jetpack libraries.
 
-- If you need to customize detekt rules, edit the detekt.yml on your root directory
+You can download the test apk here - [Rick & Morty](art/rick-and-morty.apk).
 
-- Inside the spotless folder, on your root directory - add your license file
+Wubalubadubdubbb!! 🤘🏾🤟🏾
 
-- Remember to refactor the package name :rocket:
+## Table of Contents
+- [Project Setup](#project-setup)
+- [Architecture](#architecture)
+- [Libraries](#libraries)
+- [Screenshots](#screenshots)
+- [Licence](#licence)
 
-### Prerequisites
+## Project Setup 
+To setup the project in your machine
 
-Before every commit, make sure you run the following commands:
+- Clone the repo
 
-```shell script
-./codeAnalysis
+```console
+foo@bar:~$ git clone https://github.com/tirgei/rick-and-morty.git
 ```
 
-To check for dependency updates, run the following command:
+- Set the BASE_URL in the ```local.properties``` file.
 
-```shell script
-./gradlew dependencyUpdate
+You can then import the project to your Android Studio
+
+## Architecture
+The app is divided into 3 modules, namely:
+- Presentation (app)
+- Data
+- Domain
+
+This approach is guided by the clean architecture approach which advocates for clear abstraction of the flow 
+of data from the business logic to the presentation framework dealing with displaying data to the user. 
+
+#### Presentation
+The ```app``` module contains the UI and navigation frameworks and also deals with instantiation of DI
+components for the app. [DataBinding](https://developer.android.com/topic/libraries/data-binding) is used to render data to the UI while 
+the [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) provides a link to the ```data``` module
+via the respective [UseCase](https://proandroiddev.com/why-you-need-use-cases-interactors-142e8a6fe576) s.
+
+#### Data
+The ```data``` module deals with loading data from the sample response server. The app is persisted to local cache using [Room](https://developer.android.com/training/data-storage/room).
+- ```cache``` package - contains classes dealing with offline persistence
+- ```remote``` package - contains classes dealing with fetching data from the API.
+
+#### Domain
+The ```domain``` module mainly deals with the model classes which presents the data being used across both the 
+```presentation``` module and the ```data``` module.
+
+It defines the UseCase(s) which handle the flow of data from the Repository layer to the ViewModel. It also defines 
+the Repository interfaces which the ```data``` module implements to provide data access.
+
+## Libraries
+Libraries used in the app include:
+- [Jetpack](https://developer.android.com/jetpack) - Jetpack Components
+  - [Navigation](https://developer.android.com/guide/navigation)
+  - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
+  - [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
+  - [DataBinding](https://developer.android.com/topic/libraries/data-binding)
+  - [Room](https://developer.android.com/training/data-storage/room)
+- [Dagger Hilt](https://developer.android.com/training/dependency-injection/hilt-android) - Dependency Injection framework
+- [Coroutines](https://developer.android.com/kotlin/coroutines) - Framework for asynchronous processing in Kotlin
+- [Retrofit](https://square.github.io/retrofit/) - Types-safe HTTP client for Android
+  - [Gson](https://github.com/google/gson)
+- [Timber](https://github.com/JakeWharton/timber) - Logging Library
+- [Glide](https://github.com/bumptech/glide) - Image loading & caching library
+- [Lottie](https://lottiefiles.com/) - Animation library client for Android
+
+For testing, the following libraries are included:
+- [JUnit](https://junit.org/junit4/) - Framework to write tests
+- [Mockito](https://site.mockito.org/) - Testing mocking framework
+- [Truth](https://truth.dev/) - Assertions library by Google
+- [Espresso](https://developer.android.com/training/testing/espresso) - Framework to write UI tests
+
+## Screenshots
+|**Characters**|**Character Details**|
+|--------------|---------------------|
+|<img src="art/screenshot.jpg" width="300"> | <img src="art/screenshot2.jpg" width="300"> |
+
+## Licence
 ```
+MIT License
 
-Refer to this [issue](https://github.com/gradle/gradle/issues/10248), if you get any issues running the lint commands on the terminal :rocket:
+Copyright (c) 2021 Vincent Tirgei
 
-## Tech-stack
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+associated documentation files (the "Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
 
-* Gradle
-    * [Gradle Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html) - For reference purposes, here's an [article explaining the migration](https://medium.com/@evanschepsiror/migrating-to-kotlin-dsl-4ee0d6d5c977).
-    * Plugins
-        * [Ktlint](https://github.com/JLLeitschuh/ktlint-gradle) - creates convenient tasks in your Gradle project that run ktlint checks or do code auto format.
-        * [Detekt](https://github.com/detekt/detekt) - a static code analysis tool for the Kotlin programming language.
-        * [Spotless](https://github.com/diffplug/spotless) - format java, groovy, markdown and license headers using gradle.
-        * [Dokka](https://github.com/Kotlin/dokka) - a documentation engine for Kotlin, performing the same function as javadoc for Java.
-        * [jacoco](https://github.com/jacoco/jacoco) - a Code Coverage Library.
-        * [Gradle Versions](https://github.com/ben-manes/gradle-versions-plugin) - provides a task to determine which dependencies have updates. Additionally, the plugin checks for updates to Gradle itself.
-        
-For reference, here's a detailed explanation of the approach of the plugin configuration in this project - [A Day with an Elephant in the Room: Configuring Gradle Plugins.](https://medium.com/@harunwangereka/a-day-with-an-elephant-in-the-room-configuring-gradle-plugins-3331b0be64c7)
+The above copyright notice and this permission notice shall be included in all copies or substantial
+portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```
