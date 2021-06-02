@@ -17,7 +17,7 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Decode env variables
-      - run: echo $LOCAL_PROPERTIES | base64 -d > local.properties
     - name: Build with Gradle
-      run: ./gradlew build
+      run: |
+        echo $LOCAL_PROPERTIES | base64 -d > local.properties
+        ./gradlew build
